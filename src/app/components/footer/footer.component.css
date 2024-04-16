@@ -1,0 +1,46 @@
+/* Change the background color of the header */
+.header-background {
+    background-color: #0075FF; /* Blue background */
+  }
+  
+  /* Style the buttons to have a black background with white text */
+  .btn-black {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid black; /* Black border to maintain consistency */
+  }
+  
+  /* If you want to remove the border for the outline button and adjust on hover */
+  .btn-outline-primary.btn-black {
+    background-color: transparent; /* Transparent background for outline button */
+    color: black; /* Black text for outline button */
+    border-color: black; /* Black border for outline button */
+  }
+  
+  .btn-outline-primary.btn-black:hover {
+    background-color: black; /* Black background on hover */
+    color: white; /* White text on hover */
+  }
+/* This will change the text color of the links in your nav */
+.nav-link {
+    color: #000000; /* Replace with your desired color */
+  }
+  
+  /* Optionally, you can also style the hover state */
+  .nav-link:hover {
+    color: #ffffff; /* Replace with your desired hover color */
+  }
+  /* Remove any padding or margins that could cause white spaces on the sides */
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .set-margin-left {
+    margin-left: 180px;
+}
+
+
+  

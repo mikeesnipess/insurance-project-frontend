@@ -1,0 +1,8 @@
+.bg-blue {
+    background-color: #0075FF;
+  }
+  
+.rightPart{
+    position: relative;
+  right: 80px; /* Negative value moves it to the right */
+  }
