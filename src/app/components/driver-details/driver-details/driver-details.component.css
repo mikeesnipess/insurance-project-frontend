@@ -1,0 +1,86 @@
+/* Styles for the container and headers */
+.company-background {
+    background-color: #0075FF; /* Blue background */
+  }
+
+  
+  h2, h3 {
+    color: #000000; /* Sample color for headings */
+  }
+  
+  /* Styles for form controls */
+  .form-group label {
+    font-weight: bold;
+    color: #333333; /* Color for labels */
+  }
+  
+  .form-control {
+    background-color: #ffffff; /* Light grey background */
+    border: none;
+    border-radius: 0.25rem;
+  }
+  
+  /* Style for the input placeholders */
+  .form-control::placeholder {
+    color: #666666;
+    font-style: italic;
+  }
+  
+  /* Style for buttons at the bottom */
+  .btn-outline-secondary {
+    color: #ffffff; /* Sample blue color */
+    border-color: #000000;
+    background-color: #2b4b3b;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #6d0a0a;
+    color: #ffffff;
+  }
+  
+  .btn-primary {
+    background-color: #bb9e48; /* Sample yellow color */
+    border-color: #000000;
+    color: #000000;
+  }
+  
+  .btn-primary:hover {
+    background-color: darken(#FFC107, 10%);
+    border-color: darken(#FFC107, 10%);
+  }
+  
+  /* Additional button styles if needed */
+  .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Styles for the 'Go Back' and 'Next Step' buttons container */
+  .d-flex {
+    gap: 1rem; /* Ensures space between buttons */
+  }
+  
+/* Custom input styling */
+.custom-input {
+    padding: 10px; /* Increase for larger input fields */
+    font-size: 16px; /* Adjust as needed */
+    /* Additional styling as needed */
+  }
+  
+  /* Custom row spacing */
+  .custom-row-spacing {
+    margin-bottom: 35px; /* Increase/decrease for more/less space between lines */
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .d-flex {
+      flex-direction: column;
+    }
+  
+    .btn {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
