@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header/header.component';
+import { DriverDetailsComponent } from './components/driver-details/driver-details/driver-details.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -21,12 +22,13 @@ const appRoutes: Routes = [
     HomeComponent,
     CompanyDetailsComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DriverDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes) ,
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }), // This will automatically reset the scroll position to the top on route change 
     BrowserAnimationsModule
   ],
   providers: [],
