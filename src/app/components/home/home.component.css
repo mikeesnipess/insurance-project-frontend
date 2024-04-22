@@ -181,28 +181,4 @@ h1 {
   }
 }
 
-/* footer */
-/* Footer wrapper styles */
-.footer-wrapper {
-  background-color: black; /* Set the background color to black */
-}
 
-/* Footer styles */
-.footer-wrapper footer {
-  color: white; /* Set the text color to white for all children inside footer */
-}
-
-.footer-wrapper footer h5,
-.footer-wrapper footer a,
-.footer-wrapper footer p {
-  color: white !important; /* Ensure all text is white and override other styles */
-}
-
-.footer-wrapper footer a {
-  text-decoration: none; /* Optional: Removes underline from links */
-  opacity: 0.7; /* Reduces the opacity for a subtler look */
-}
-
-.footer-wrapper footer a:hover {
-  opacity: 1; /* Full opacity on hover for interactivity */
-}

@@ -1,0 +1,27 @@
+.company-background {
+    background-color: #0075FF; /* Blue background */
+  }
+
+  .submit-button{
+    background-color: rgb(0, 0, 0);
+    width: 250px;
+  }
+/* Custom input styling */
+.custom-input {
+    padding: 10px; /* Increase for larger input fields */
+    font-size: 16px; /* Adjust as needed */
+    /* Additional styling as needed */
+  }
+  
+  /* Custom row spacing */
+  .custom-row-spacing {
+    margin-bottom: 35px; /* Increase/decrease for more/less space between lines */
+  }
+  
+  /* Custom button styling */
+  .custom-submit-button {
+    padding: 10px 30px; /* Increase padding for a larger button */
+    font-size: 18px; /* Adjust as needed */
+    /* Additional styling as needed */
+  }
+  
