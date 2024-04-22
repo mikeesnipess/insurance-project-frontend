@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CompanyDetailsComponent } from './components/company-details/company-details.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header/header.component';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -18,12 +20,14 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     CompanyDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes) 
+    RouterModule.forRoot(appRoutes) ,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

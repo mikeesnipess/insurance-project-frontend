@@ -7,8 +7,151 @@
       </div>
       <!-- Image column to take up 5 parts of the grid -->
       <div class="col-12 col-lg-5">
-        <img src="assets/img/primary-home-img.png" class="img-fluid" alt="Ekora Insurance" loading="lazy">
+        <img src="assets/img/home/primary-home-img.png" class="img-fluid" alt="Ekora Insurance" loading="lazy">
+      </div>
+    </div>
+</div>
+
+<!-- Button Enroll for Occupation-->
+<div class="container-fluid" *ngIf="!modalVisible">
+  <div class="row justify-content-center">
+    <div class="col-3 text-center position-relative" style="margin-top: -40px;">
+      <button (click)="toggleModal()" class="btn custom-btn-size fw-bold custom-btn-color d-flex align-items-center justify-content-center">
+        <span class="icon-wrapper"><img src="assets/img/home/click-button-icon.png" alt="" style="height: 30px; width: 30px;"></span>
+        <span class="text-wrapper">
+          <span>ENROLL FOR</span>
+          <span style="display: block;">OCCUPATION ACCIDENT</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Button after click -->
+<div @fadeInOut class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" *ngIf="modalVisible" id="modalAfterClick" style="background-color: transparent; margin-top: -210px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header px-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-3 pl-4">Select your type of search</h1>
+      </div>
+      <div class="modal-body pt-0">
+        <form class="">
+          <!-- Updated Buttons before email input -->
+          <div class="mb-3 d-flex justify-content-between button-group">
+            <button type="button" class="btn custom-btn">MC/MX</button>
+            <button type="button" class="btn custom-btn">USDOT</button>
+            <button type="button" class="btn custom-btn">COMPANY NAME</button>
+          </div>
+          <!-- Email input -->
+          <div class="form-floating mb-2">
+            <input type="email" placeholder="Enter code" class="form-control rounded-3 px-4" id="floatingInput">
+            <!-- <label for="floatingInput">Enter code</label> -->
+          </div>
+          <!-- Sign up button -->
+          <button routerLink="/company-details" class="w-100  btn btn-lg rounded-3 btn-primary" type="submit">NEXT</button>
+          <small style="color: #ffffff;">By clicking Next, you agree to the terms of use.</small>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>
+
+
+<!-- Second part of land page -->
+<div class="container-fluid px-4 py-5 bg-white">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="display-3 fw-bold text-black lh-1 mb-3">Headline Goes Here</h1>
+    </div>
+  </div>
+
+  <div class="row align-items-center g-6 py-5">
+    <div class="col-12 col-lg-5">
+      <img src="assets/img/home/second-home-img.png" class="img-fluid" alt="Image description" loading="lazy">
+    </div>
+    <div class="col-12 col-lg-4 text-left">
+      <p class="lead text-black mb-4">Lorem ipsum dolor sit amet consectetur. At lorem proin et dui laoreet egestas ac. At lorem proin et dui laoreet egestas ac. Lorem ipsum dolor sit amet consectetur. At lorem proin et dui laoreet egestas ac.</p>
+      <button class="btn btn-primary">Get Started</button>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- third part of land page -->
+<div class="ad-container">
+  <h1>What makes EKORA one of USA's favorite places to insure your truck?</h1>
+  <div class="cards-container">
+    <div class="card" *ngFor="let card of cards">
+      <h3>{{ card.headline }}</h3>
+      <p>{{ card.description }}</p>
+      <img src="{{ card.icon }}" alt="Icon">
+    </div>
+  </div>
+</div>
+
+<!-- fourth part -->
+<div class="px-4 py-5 my-5 text-center">
+  <img src="assets/img/logo-company-black.png" width="142" height="37" alt="Company Logo">
+  <h1 class="display-5 fw-bold text-body-emphasis">Centered hero</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+
+<div class="footer-wrapper">
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top">
+    <div class="col mb-3">
+      <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+        <!-- Replace SVG with image -->
+        <img src="assets/img/logo-company.png" width="142" height="37" alt="Company Logo">
+      </a>
+      <p class="text-body-secondary">© 2024</p>
+    </div>
+
+    <div class="col mb-3">
+
+    </div>
+
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+</div>

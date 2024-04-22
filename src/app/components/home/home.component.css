@@ -6,3 +6,203 @@
     position: relative;
   right: 80px; /* Negative value moves it to the right */
   }
+
+  .custom-btn-size {
+    padding: 20px 50px; /* Adjust the padding to increase or decrease the button size */
+    font-size: 1rem; /* Adjust the font size as needed */
+    border-radius: 20px;
+  }
+  
+  .custom-btn-color {
+    background-color: #000000; /* Replace #hexcolor with your desired hex color code */
+    border-color: #000000; /* Border color can match the background or be different */
+    color: #ffffff
+  }
+  
+  /* Optionally, you might want to add :hover states for interaction */
+  .custom-btn-color:hover {
+    background-color: #000000; /* A slightly darker shade for hover state */
+    border-color: #000000;
+  }
+  
+  .custom-btn-size.custom-btn-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-btn-size.custom-btn-color .icon-wrapper img {
+    height: 30px;
+    width: 30px;
+}
+
+.custom-btn-size.custom-btn-color .text-wrapper {
+    margin-left: 8px;
+}
+
+
+/* Button after click */
+/* Add this to your CSS file or <style> tag */
+
+/* Modal dialog adjustments for a larger size */
+.modal-dialog {
+  width: 60%; /* Increased modal max width for larger display */
+  height: 500px;
+  margin: 1rem auto; /* Adjusted top margin and auto for horizontal centering */
+}
+
+/* Button styling */
+.button-group .custom-btn {
+  flex-grow: 1;
+  margin: 0 2px; /* Maintain tight margins for button group */
+  border: 1px solid white; /* Keep borders for buttons */
+  background-color: transparent;
+  color: white;
+  padding: 8px 12px; /* Adjust padding for buttons if needed */
+  font-size: 0.8rem; /* Keep smaller font size for button text */
+}
+
+/* Remove margin for the first and last button to align with the container */
+.button-group .custom-btn:first-child,
+.button-group .custom-btn:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Modal content adjustments */
+.modal-content {
+  background-color: #000000;
+  padding: 0.4rem; /* Adjust padding for modal content */
+  border-radius: 4px; /* Rounded corners for modal content */
+  width: auto; /* Width set to auto to adapt to the content width */
+  height: auto; /* Height set to auto to adapt to the content height */
+}
+
+/* Text color and padding adjustments */
+.modal-header,
+.modal-body {
+  color: white;
+  padding-left: 1.5rem; /* Adjusted padding for header and body */
+  
+}
+
+/* Active and focus styles for buttons */
+.button-group .custom-btn:active,
+.button-group .custom-btn:focus {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Input field styling */
+.form-control {
+  background-color: #ffffff;
+  color: black;
+  border: 1px solid #cccccc;
+  padding: 1px; /* Adjusted padding for input */
+  font-size: 0.9rem; /* Keep font size for input text */
+}
+
+.form-control::placeholder {
+  color: #aaaaaa; /* Placeholder text color */
+}
+
+/* Floating label styling */
+.form-floating > label {
+  color: #888888;
+  padding: 4px; /* Adjust padding for label */
+  font-size: 1.2rem; /* Adjust font size for label */
+}
+
+.form-floating > .form-control:focus + label {
+  color: black; /* Label color when input is focused */
+}
+
+/* Sign up button styling */
+.btn-primary {
+  padding: 12px 0; /* Adjusted padding for a taller button */
+  font-size: 1rem; /* Increased font size for button text */
+}
+
+/* Smaller disclaimer text */
+small {
+  font-size: 0.90rem; /* Maintain smaller font size for disclaimer text */
+  color: #ffffff; /* Ensuring the text is white */
+}
+
+
+
+
+
+/* for third part */
+
+/* Add this to make the container center itself */
+.ad-container {
+  background-color: black; /* changed from #333 for a pure black background */
+  color: white;
+  max-width: 1140px; /* width of your container */
+  margin: 0 auto; /* centers the container */
+  padding: 50px;
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 100px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between; /* changed to space-between for even spacing */
+  gap: 20px; /* adds a gap between the cards */
+}
+
+.card {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 50px;
+  flex-basis: calc(33% - 20px); /* each card takes up 33% of the container width minus the gap */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* optional: adds a slight shadow for depth */
+}
+
+.card img {
+  margin-top: 15px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 1200px) {
+  .cards-container {
+    flex-direction: column;
+  }
+  .card {
+    flex-basis: auto;
+    margin-bottom: 20px;
+  }
+}
+
+/* footer */
+/* Footer wrapper styles */
+.footer-wrapper {
+  background-color: black; /* Set the background color to black */
+}
+
+/* Footer styles */
+.footer-wrapper footer {
+  color: white; /* Set the text color to white for all children inside footer */
+}
+
+.footer-wrapper footer h5,
+.footer-wrapper footer a,
+.footer-wrapper footer p {
+  color: white !important; /* Ensure all text is white and override other styles */
+}
+
+.footer-wrapper footer a {
+  text-decoration: none; /* Optional: Removes underline from links */
+  opacity: 0.7; /* Reduces the opacity for a subtler look */
+}
+
+.footer-wrapper footer a:hover {
+  opacity: 1; /* Full opacity on hover for interactivity */
+}
