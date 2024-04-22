@@ -1,1 +1,88 @@
-<p>driver-details works!</p>
+<!-- driver-details.component.html -->
+<div class="company-background container-fluid d-flex flex-column justify-content-center align-items-center min-vh-50   ">
+    <h2 class="text-center mb-3">Headline goes here</h2>
+    <h3 class="text-center mb-5">Total Cost $xxx</h3>
+    
+    <form class="" style="width: 1200px;"> <!-- Adjust the width as needed -->
+      <div class="row mb-3 g-3 justify-content-center">
+        <!-- First column of fields -->
+        <div class="col-md-4">
+            <div class="form-group mb-3">
+                <label for="firstNameDriver">First Name</label>
+                <input type="tel" class="form-control" id="firstNameDriver" placeholder="Enter First Name">
+              </div>
+              <div class="form-group mb-3">
+                <label for="lastNameDriver">Last Name</label>
+                <input type="tel" class="form-control" id="lastNameDriver" placeholder="Enter Last Name">
+              </div>
+              <div class="form-group mb-3">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender">
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <!-- Date of BIRTHDAY -->
+              <div class="form-group mb-3">
+                <label for="dateOfBirth">Date of Birth</label>
+                <div class="d-flex">
+                  <!-- Day dropdown -->
+                  <select class="form-control mr-1" id="birthDay">
+                    <option value="">Day</option>
+                    <!-- Generate options 1 through 31 -->
+                    <!-- You can automate this with Angular *ngFor -->
+                    <option value="1">1</option>
+                    <!-- ... more day options ... -->
+                    <option value="31">31</option>
+                  </select>
+              
+                  <!-- Month dropdown -->
+                  <select class="form-control mx-1" id="birthMonth">
+                    <option value="">Month</option>
+                    <!-- You can automate this with Angular *ngFor -->
+                    <option value="1">January</option>
+                    <!-- ... more month options ... -->
+                    <option value="12">December</option>
+                  </select>
+              
+                  <!-- Year dropdown -->
+                  <select class="form-control ml-1" id="birthYear">
+                    <option value="">Year</option>
+                    <!-- Generate options for year range -->
+                    <!-- You can automate this with Angular *ngFor -->
+                    <option value="1980">1980</option>
+                    <!-- ... more year options ... -->
+                    <option value="2004">2004</option>
+                  </select>
+                </div>
+              </div>
+              
+        </div>
+  
+        <!-- Second column of fields -->
+        <div class="col-md-4">
+            <div class="form-group mb-3">
+                <label for="mobilePhone">Mobile Phone</label>
+                <input type="tel" class="form-control" id="mobilePhone" placeholder="Enter Phone Number">
+              </div>
+        </div>
+  
+        <!-- Third column of fields -->
+        <div class="col-md-4">
+            <div class="form-group mb-3">
+                <label for="mobilePhone">Mobile Phone</label>
+                <input type="tel" class="form-control" id="mobilePhone" placeholder="Enter Phone Number">
+              </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="d-flex justify-content-between mt-4"> <!-- Align buttons to bottom -->
+          <button routerLink="/company-details" type="button" class="btn btn-outline-secondary">Go Back</button>
+          <button type="submit" class="btn btn-primary">Next Step</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+</div>

@@ -14,6 +14,8 @@ import { DriverDetailsComponent } from './components/driver-details/driver-detai
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'company-details', component:CompanyDetailsComponent},
+  {path: 'driver-details', component:DriverDetailsComponent},
+
 ]
 
 @NgModule({
