@@ -1,7 +1,14 @@
 <!-- driver-details.component.html -->
 <div class="company-background container-fluid d-flex flex-column justify-content-center align-items-center min-vh-50   ">
-    <h2 class="text-center mb-3">Headline goes here</h2>
-    <h3 class="text-center mb-5">Total Cost $xxx</h3>
+    <div class="d-flex justify-content-between align-items-center w-100 mb-5">
+        <div>
+            <h2 class="mb-3" style="margin-left: 120px;">Headline goes here</h2>
+            <h3 style="margin-left: 120px;">Total Cost $xxx</h3>
+        </div>
+        <button type="button" class="btn btn-primary" style="margin-right: 130px;">ADD DRIVER
+            <span class="icon-wrapper"><img src="assets/img/home/add-driver-button-icon.png" alt="" style="height: 30px; width: 30px;"></span>
+        </button>
+    </div>
     
     <form class="" style="width: 1200px;"> <!-- Adjust the width as needed -->
       <div class="row mb-3 g-3 justify-content-center">
@@ -28,36 +35,26 @@
                 <label for="dateOfBirth">Date of Birth</label>
                 <div class="d-flex">
                   <!-- Day dropdown -->
-                  <select class="form-control mr-1" id="birthDay">
-                    <option value="">Day</option>
-                    <!-- Generate options 1 through 31 -->
-                    <!-- You can automate this with Angular *ngFor -->
-                    <option value="1">1</option>
-                    <!-- ... more day options ... -->
-                    <option value="31">31</option>
-                  </select>
-              
-                  <!-- Month dropdown -->
-                  <select class="form-control mx-1" id="birthMonth">
-                    <option value="">Month</option>
-                    <!-- You can automate this with Angular *ngFor -->
-                    <option value="1">January</option>
-                    <!-- ... more month options ... -->
-                    <option value="12">December</option>
-                  </select>
-              
-                  <!-- Year dropdown -->
-                  <select class="form-control ml-1" id="birthYear">
-                    <option value="">Year</option>
-                    <!-- Generate options for year range -->
-                    <!-- You can automate this with Angular *ngFor -->
-                    <option value="1980">1980</option>
-                    <!-- ... more year options ... -->
-                    <option value="2004">2004</option>
-                  </select>
+                <ng-select class="form-control mr-1" id="birthDay" [items]="days" bindLabel="day" bindValue="day" placeholder="Day" [searchable]="false">
+                </ng-select>
+
+                <!-- Month dropdown -->
+                <ng-select class="form-control mx-1" id="birthMonth" [items]="months" bindLabel="month" bindValue="month" placeholder="Month" [searchable]="false">
+                </ng-select>
+
+                <!-- Year dropdown -->
+                <ng-select class="form-control ml-1" id="birthYear" [items]="years" bindLabel="year" bindValue="year" placeholder="Year" [searchable]="false">
+                </ng-select>
                 </div>
               </div>
-              
+              <div class="form-group mb-3">
+                <label for="numberSSN">SSN last four digits</label>
+                <input type="tel" class="form-control" id="numberSSN" placeholder="Enter SSN last 4 digits">
+              </div>
+              <div class="form-group mb-3">
+                <label for="emailAddress">Email Address(es)</label>
+                <input type="tel" class="form-control" id="emailAddress" placeholder="Enter Email Addresses">
+              </div>
         </div>
   
         <!-- Second column of fields -->
@@ -65,15 +62,70 @@
             <div class="form-group mb-3">
                 <label for="mobilePhone">Mobile Phone</label>
                 <input type="tel" class="form-control" id="mobilePhone" placeholder="Enter Phone Number">
+            </div>
+            <div class="form-group mb-3">
+                <label for="paidBy">Paid by</label>
+                <input type="tel" class="form-control" id="paidBy" placeholder="Select payment">
+            </div>
+            <div class="form-group mb-3">
+                <label for="numberCDI">CDI number</label>
+                <input type="tel" class="form-control" id="numberCDI" placeholder="Enter CDI State">
+            </div>
+            <div class="form-group mb-3">
+                <label for="numberCDL">CDL number</label>
+                <input type="tel" class="form-control" id="numberCDL" placeholder="Enter CDL State">
+            </div>
+
+            <!-- Select issue date -->
+            <div class="form-group mb-3">
+                <label for="issueDate">Select CDL issue date</label>
+                <div class="d-flex">
+                  <!-- Day dropdown -->
+                <ng-select class="form-control mr-1" id="issueDateDay" [items]="days" bindLabel="day" bindValue="day" placeholder="Day" [searchable]="false">
+                </ng-select>
+
+                <!-- Month dropdown -->
+                <ng-select class="form-control mx-1" id="issueDateMonth" [items]="months" bindLabel="month" bindValue="month" placeholder="Month" [searchable]="false">
+                </ng-select>
+
+                <!-- Year dropdown -->
+                <ng-select class="form-control ml-1" id="issueDateYear" [items]="years" bindLabel="year" bindValue="year" placeholder="Year" [searchable]="false">
+                </ng-select>
+                </div>
               </div>
-        </div>
+            
+              <div class="form-group mb-3">
+                <label for="primaryAddress">Primary Address</label>
+                <input type="tel" class="form-control" id="primaryAddress" placeholder="Enter Primary Address">
+              </div>
+            </div>
   
         <!-- Third column of fields -->
         <div class="col-md-4">
             <div class="form-group mb-3">
-                <label for="mobilePhone">Mobile Phone</label>
-                <input type="tel" class="form-control" id="mobilePhone" placeholder="Enter Phone Number">
-              </div>
+                <label for="primaryState">Primary State</label>
+                <input type="tel" class="form-control" id="primaryState" placeholder="Enter Primary State">
+            </div>
+            <div class="form-group mb-3">
+                <label for="primaryPostalCode">Primary Postal Code</label>
+                <input type="tel" class="form-control" id="primaryPostalCode" placeholder="Enter Primary Postal Code">
+            </div>
+            <div class="form-group mb-3">
+                <label for="beneficiaryName">Beneficiary Name</label>
+                <input type="tel" class="form-control" id="beneficiaryName" placeholder="Enter Primary Beneficiary Name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="relationhipEntry">Relationship</label>
+                <input type="tel" class="form-control" id="relationhipEntry" placeholder="Enter Relationship">
+            </div>
+            <div class="form-group mb-3">
+                <label for="beneficiaryPhone">Beneficiary Phone</label>
+                <input type="tel" class="form-control" id="beneficiaryPhone" placeholder="Enter Primary Beneficiary Phone">
+            </div>
+            <div class="form-group mb-3">
+                <label for="typeOfVehicle">Type of Vehicle/Loads</label>
+                <input type="tel" class="form-control" id="typeOfVehicle" placeholder="Enter Type of Vehicle">
+            </div>
         </div>
       </div>
   
