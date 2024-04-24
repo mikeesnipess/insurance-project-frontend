@@ -1,0 +1,47 @@
+.pdf-container {
+    height: 100vh;
+    background-color: #0075FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px; /* Added padding for spacing at the bottom */
+  }
+  
+  .title {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .pdf-viewer {
+    display: block;
+    width: 56%;
+    height: 70%;
+    border: 10px solid black;
+    border-radius: 10px;
+    margin-bottom: 30px; /* Space between PDF viewer and button */
+  }
+  
+  .sign-button {
+    right: 20px; /* 20px from the right edge of the viewport */
+    bottom: 20px; /* 20px from the bottom edge of the viewport */
+    padding: 10px 50px;
+    font-size: 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  .sign-button:hover {
+    background-color: #f5f5f5;
+    color: #000000;
+  }
+  
+  
+  
