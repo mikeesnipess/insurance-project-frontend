@@ -1,0 +1,16 @@
+/* Ensure the body has no margin and the background is white */
+body {
+    margin: 0;
+    background-color: white;
+  }
+  
+  /* This class ensures that your container is at least the height of the viewport */
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  /* Optional: if you need the background to be white, even if content overflows */
+  html {
+    background-color: white;
+  }
+  
