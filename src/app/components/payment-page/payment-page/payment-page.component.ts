@@ -21,7 +21,7 @@ export class PaymentPageComponent {
       token: (token: any) => {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
-        console.log(token.id)
+        console.log(token)
         // Use Angular Router to navigate
         this.router.navigateByUrl('/review-page');
       }
