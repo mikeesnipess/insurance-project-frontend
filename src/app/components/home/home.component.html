@@ -36,20 +36,33 @@
       </div>
       <div class="modal-body pt-0">
         <form class="">
-          <!-- Updated Buttons before email input -->
           <div class="mb-3 d-flex justify-content-between button-group">
-            <button type="button" class="btn custom-btn">MC/MX</button>
-            <button type="button" class="btn custom-btn">USDOT</button>
-            <button type="button" class="btn custom-btn">COMPANY NAME</button>
+            <button type="button" class="btn custom-btn" [ngClass]="{'selected': isMcmxSelected}" (click)="selectButton('MC/MX', $event)">MC/MX</button>
+            <button type="button" class="btn custom-btn" [ngClass]="{'selected': isUsdotSelected}" (click)="selectButton('USDOT', $event)">USDOT</button>
+            <button type="button" class="btn custom-btn" [ngClass]="{'selected': isNameSelected}" (click)="selectButton('COMPANY NAME', $event)">COMPANY NAME</button>
           </div>
-          <!-- Email input -->
+          
+          <!-- Code Input -->
           <div class="form-floating mb-2">
-            <input type="email" placeholder="Enter code" class="form-control rounded-3 px-4" id="floatingInput">
-            <!-- <label for="floatingInput">Enter code</label> -->
+            <input type="text"
+                  placeholder="Enter number/name"
+                  class="form-control rounded-3 px-4"
+                  id="floatingInput"
+                  [(ngModel)]="mcmxNumber"
+                  name="mcmxNumber" 
+                  [(ngModel)]="usdotNumber"
+                  name="usdotNumber" 
+                  [(ngModel)]="nameSearch"
+                  name="nameSearch" 
+                  (focus)="onInputFocus()"
+                  required> <!-- HTML5 validation to ensure the field is not empty -->
           </div>
-          <!-- Sign up button -->
-          <button routerLink="/company-details" class="w-100  btn btn-lg rounded-3 btn-primary" type="submit">NEXT</button>
+          <!-- Next Button -->
+          <button class="w-100 btn btn-lg rounded-3 btn-primary" type="button" [disabled]="!mcmxNumber" (click)="onNextClick()">NEXT</button>
           <small style="color: #ffffff;">By clicking Next, you agree to the terms of use.</small>
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
         </form>
       </div>
     </div>

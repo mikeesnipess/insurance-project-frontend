@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule,Routes } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }), // This will automatically reset the scroll position to the top on route change 
     BrowserAnimationsModule,
     NgSelectModule,
-    PdfViewerModule
+    PdfViewerModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

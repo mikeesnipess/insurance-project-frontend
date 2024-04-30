@@ -87,11 +87,13 @@
 }
 
 /* Active and focus styles for buttons */
-.button-group .custom-btn:active,
+.button-group .custom-btn.selected, 
+.button-group .custom-btn:active, 
 .button-group .custom-btn:focus {
-  background-color: #ffffff;
-  color: #000000;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
+
 
 /* Input field styling */
 .form-control {
@@ -169,6 +171,20 @@ h1 {
 .card img {
   margin-top: 15px;
 }
+
+select.form-control {
+  /* Styles that mimic your button appearance */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.selected {
+  background-color: #ffffff; /* Bootstrap primary color for example */
+  color: rgb(255, 0, 0);
+}
+
+
 
 /* Media query for responsiveness */
 @media (max-width: 1200px) {

@@ -1,0 +1,41 @@
+.document-container {
+    display: flex;
+    justify-content: center; /* Centers children horizontally within the container */
+    align-items: center; /* Centers children vertically if container is full height */
+    padding: 1%; /* Adjust as needed for spacing */
+    gap: 30px; /* You can set a gap between the children */
+    background-color: #0075FF;
+  }
+  
+  
+  .pdf-viewer {
+    width: 830px;
+    height: 550px;
+    border: 10px solid black; /* Example border style */
+    border-radius: 7px;
+    /* Add other styles like height or max-width as necessary */
+  }
+  
+  .buttons-container {
+    flex-direction: column;
+    justify-content: flex-start; /* Align buttons to the top */
+    width: 10px;
+    height: 550px;
+  }
+  
+  .pdf-action-button {
+    border: 3px solid black; /* Matches the PDF viewer border */
+    margin-bottom: 10px; /* Spacing between buttons */
+    padding: 10px; /* Adjust padding as needed */
+    width: 170px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Additional styling as needed */
+  }
+  

@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./signing-page.component.css']
 })
 export class SigningPageComponent {
-  pdfSrc: string = 'assets/Pdf.pdf'; // Adjust the filename as necessary
+  pdfSrc: string = 'assets/PdfSigning.pdf'; // Adjust the filename as necessary
 }
 
