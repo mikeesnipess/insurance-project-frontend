@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Usdot } from './usdot';  // Ensure the path is correct
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ export class UsdotService {
 
   constructor(private http: HttpClient) { }
 
-  getUsdotData(usdotNumber: number): Observable<any> {
-    return this.http.get<any>(`${this.resourceUrl}/${usdotNumber}`, { observe: 'response' })
+  getUsdotData(usdotNumber: number): Observable<Usdot | null> {
+    return this.http.get<Usdot>(`${this.resourceUrl}/${usdotNumber}`, { observe: 'response' })
       .pipe(
         map(response => {
-          // Check if the content is null and handle accordingly
-          if (response.body.content === null) {
+          console.log('Received data:', response.body);
+          if (response.body === null) {
             return null;
           }
           return response.body;

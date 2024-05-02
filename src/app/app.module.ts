@@ -7,7 +7,7 @@ import {HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompanyDetailsComponent } from './components/company-details/company-details.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header/header.component';
@@ -53,6 +53,7 @@ const appRoutes: Routes = [
     NgSelectModule,
     PdfViewerModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
