@@ -4,6 +4,7 @@ import { UsdotService } from 'src/app/services/USDOT/usdot.service';
 import { McmxService } from 'src/app/services/MCMX/mcmx.service';
 import { NameSearchService } from 'src/app/services/SearchByName/name-search.service';
 import { Router } from '@angular/router';
+import Usdot from 'src/app/services/USDOT/usdot';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   mcmxNumber: number | null = null;
   nameSearch: string = '';
   errorMessage: string = ''; // To show error messages to the user
+  dataTransferObject : Usdot | null= null;
 
 
   constructor(private usdotService: UsdotService,
@@ -64,7 +66,9 @@ export class HomeComponent implements OnInit {
           if (response === null) {
             this.errorMessage = 'No data available for the provided USDOT number.';
           } else {
-            this.router.navigate(['/company-details']);
+            this.dataTransferObject = response;
+            // Navigate with state
+            this.router.navigate(['/company-details'], { state: { dataTransferObject: response } });
           }
         },
         error: (error) => {

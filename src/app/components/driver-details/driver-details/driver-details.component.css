@@ -81,6 +81,17 @@
     background-color: rgb(0, 0, 0); /* Or any color you prefer */
   }
   
+
+  .headline {
+    font-size: 40px; /* Adjust the font size for the headline */
+    margin-left: 120px;
+}
+
+.cost {
+    font-size: 28px; /* Adjust the font size for the cost */
+    margin-left: 120px;
+}
+
   
 
   /* Responsive adjustments for smaller screens */

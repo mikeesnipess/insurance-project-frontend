@@ -2,7 +2,7 @@
     <div class="row align-items-center g-6 py-2">
       <!-- Text column to take up 7 parts of the grid -->
       <div class="col-12 col-lg-5 text-end">
-        <h1 class="display-3 fw-bold text-black lh-1 mb-3">Forget Everything You Know About Insurance</h1>
+        <h1 class="display-3 fw-bold text-black lh-1 mb-3" style="font-size: 48px;">Forget Everything You Know About Insurance</h1>
         <p class="display-6 lead text-black">Instant everything. Incredible prices. Big heart.</p>
       </div>
       <!-- Image column to take up 5 parts of the grid -->
@@ -28,7 +28,7 @@
 </div>
 
 <!-- Button after click -->
-<div @fadeInOut class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" *ngIf="modalVisible" id="modalAfterClick" style="background-color: transparent; margin-top: -210px;">
+<div @fadeInOut class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" *ngIf="modalVisible" id="modalAfterClick" style="max-height: 500px; background-color: transparent; margin-top: -210px; overflow: hidden;">
   <div class="modal-dialog" role="document">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header px-5 pb-4 border-bottom-0">
@@ -74,17 +74,16 @@
 <div class="container-fluid px-4 py-5 bg-white">
   <div class="row">
     <div class="col-12 text-center">
-      <h1 class="display-3 fw-bold text-black lh-1 mb-3">Headline Goes Here</h1>
+      <h1 class="display-3 fw-bold text-black lh-1 mb-3" style="font-size: 48px;">Features of Ekora</h1>
     </div>
   </div>
 
   <div class="row align-items-center g-6 py-5">
     <div class="col-12 col-lg-5">
-      <img src="assets/img/home/second-home-img.png" class="img-fluid" alt="Image description" loading="lazy">
+      <img src="../../../assets/img/home/second-home-img.png" class="img-fluid" alt="Ekora insurance" loading="lazy">
     </div>
     <div class="col-12 col-lg-4 text-left">
       <p class="lead text-black mb-4">Lorem ipsum dolor sit amet consectetur. At lorem proin et dui laoreet egestas ac. At lorem proin et dui laoreet egestas ac. Lorem ipsum dolor sit amet consectetur. At lorem proin et dui laoreet egestas ac.</p>
-      <button class="btn btn-primary">Get Started</button>
     </div>
   </div>
 
