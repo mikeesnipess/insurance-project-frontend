@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule,Routes } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -18,6 +18,7 @@ import { ReviewPageComponent } from './components/review-page/review-page/review
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page/sign-up-page.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer/pdf-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -55,7 +56,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
