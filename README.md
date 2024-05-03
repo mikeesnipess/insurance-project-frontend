@@ -1,4 +1,4 @@
-# InsuranceProjectUtm
+# InsuranceProjectFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
@@ -25,3 +25,41 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Photo from site
+Home page
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/55f24f4f-67b9-47d9-a5fb-e0441064b835)
+
+First page on Occupation Accident platform
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/669d2a9c-4ab3-4df4-9ebb-48d972f1856b)
+
+After click button receive 3 type of search what call the FMCSA
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/e8cbfc65-b774-46b5-a41a-bbad3b2a6e67)
+
+Receive data about company from FMCSA
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/6a3c209e-74fb-4b2f-b573-882ded7917a0)
+
+Complete data about driver to receive occupation accident insurance
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/5bbe106a-4ef4-442c-8159-53d38f121094)
+
+Generate PDF to sing with DocuSign ( PDF is just test template)
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/6dff171c-7cba-4fe1-8760-35f418ad6343)
+
+Payment page, after click this button we will pay with card
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/e2a841d0-c537-4a50-8e21-6d3326e24e8b)
+
+Integration with stripe to payment
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/0cccf629-c87b-4a79-89f8-b44589aae4b3)
+
+Finally you can download the insurance, recipient, or go to home page
+
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/7861deb3-2401-4a01-846f-75a8c2479ce9)
+
+
