@@ -19,7 +19,6 @@ export class CompanyDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Retrieve the state directly from the history
     if (history.state && history.state.dataTransferObject) {
       this.dataTransferObject = history.state.dataTransferObject as Usdot;
       if (this.dataTransferObject && this.dataTransferObject.carrier) {

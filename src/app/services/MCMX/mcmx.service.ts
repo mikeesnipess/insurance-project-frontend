@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import Usdot from '../USDOT/usdot';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,13 @@ export class McmxService {
 
   constructor(private http: HttpClient) { }
 
-  getMcMxData(mcmxNumber: number): Observable<any> {
-    return this.http.get<any>(`${this.resourceUrl}/${mcmxNumber}`, { observe: 'response' })
+  getMcMxData(mcmxNumber: number): Observable<Usdot | null> {
+    return this.http.get<{ content: Usdot[] }>(`${this.resourceUrl}/${mcmxNumber}`, { observe: 'response' })
       .pipe(
         map(response => {
-          // Check if the content is empty or null and handle accordingly
-          if (!response.body.content || response.body.content.length === 0) {
-            return null;  // return null when content is null or empty
-          }
-          return response.body;
+          const data = response.body?.content[0] ?? null;
+          console.log('Received data:', data);
+          return data;
         })
       );
   }

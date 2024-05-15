@@ -16,7 +16,9 @@
             "outputPath": "dist/insurance-project-utm",
             "index": "src/index.html",
             "allowedCommonJsDependencies": [
-              "lodash"
+              "lodash",
+              "pdfjs-dist",
+              "pdfjs-dist/web/pdf_viewer"
            ],
             "main": "src/main.ts",
             "polyfills": [
@@ -64,9 +66,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "ssl": true,
-            "sslKey": "D:\\UNIVER\\ANUL 4\\Licenta\\certificateHTTPS\\localhost.key",
-            "sslCert": "D:\\UNIVER\\ANUL 4\\Licenta\\certificateHTTPS\\localhost.crt",
             "buildTarget": "insurance-project-utm:build:development"
           },
           "configurations": {

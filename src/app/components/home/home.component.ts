@@ -19,31 +19,28 @@ import Usdot from 'src/app/services/USDOT/usdot';
 })
 export class HomeComponent implements OnInit {
   modalVisible: boolean = false;
-  isLoading: boolean = false; // To control loading spinner or indicators\
-  isUsdotSelected: boolean =false;
-  isMcmxSelected: boolean =false;
-  isNameSelected: boolean =false;
+  isLoading: boolean = false;
+  isUsdotSelected: boolean = false;
+  isMcmxSelected: boolean = false;
+  isNameSelected: boolean = false;
   navigateToCompanyDetails: boolean = false;
 
-
   selectedButton: string | null = null;
-  usdotNumber: number | null = null;  // Change from string to number or null for initialization
+  usdotNumber: number | null = null;
   mcmxNumber: number | null = null;
   nameSearch: string = '';
-  errorMessage: string = ''; // To show error messages to the user
-  dataTransferObject : Usdot | null= null;
+  errorMessage: string = '';
+  dataTransferObject: Usdot | null = null;
 
-
-  constructor(private usdotService: UsdotService,
-    private mcmxService:McmxService,
+  constructor(
+    private usdotService: UsdotService,
+    private mcmxService: McmxService,
     private nameSearchService: NameSearchService,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
-  ngOnInit() {
-    // You might want to load some initial data here
-  }
+  ngOnInit() {}
 
- 
   onNextClick(): void {
     this.errorMessage = '';
     if (!this.usdotNumber && this.isUsdotSelected) {
@@ -56,96 +53,98 @@ export class HomeComponent implements OnInit {
       this.errorMessage = 'Please enter a valid company name.';
       return;
     }
-  
+
     if (this.isUsdotSelected) {
-      // Call the appropriate service based on the selected search type
-      this.isLoading = true;
-      this.usdotService.getUsdotData(this.usdotNumber!).subscribe({
-        next: (response) => {
-          this.isLoading = false;
-          if (response === null) {
-            this.errorMessage = 'No data available for the provided USDOT number.';
-          } else {
-            this.dataTransferObject = response;
-            // Navigate with state
-            this.router.navigate(['/company-details'], { state: { dataTransferObject: response } });
-          }
-        },
-        error: (error) => {
-          this.isLoading = false;
-          this.errorMessage = 'Failed to fetch data. Please try again.';
-        }
-      });
+      this.searchByUsdot();
     } else if (this.isMcmxSelected) {
-      this.isLoading = true;
-      this.mcmxService.getMcMxData(this.mcmxNumber!).subscribe({
-        next: (response) => {
-          this.isLoading = false;
-          if (response === null) {
-            this.errorMessage = 'No data available for the provided MC/MX number.';
-          } else {
-            this.router.navigate(['/company-details']);
-          }
-        },
-        error: (error) => {
-          this.isLoading = false;
-          this.errorMessage = 'Failed to fetch data. Please try again.';
-        }
-      });
-    }else if (this.isNameSelected) {
-      this.isLoading = true;
-      this.nameSearchService.getCompanyName(this.nameSearch!).subscribe({
-        next: (response) => {
-          console.log('Response:', response); // Check the response data
-          if (Array.isArray(response) && response.length > 2) {
-            this.errorMessage = 'Too many results. Please enter a more specific company name.';
-          } else if (response === null || response === undefined || response.length === 0) {
-            this.errorMessage = 'No data available for this company name.';
-          } else {
-            this.router.navigate(['/company-details']);
-          }
-          
-          this.isLoading = false; // Make sure to set isLoading to false regardless of the response
-        },
-        error: (error) => {
-          this.isLoading = false;
-          this.errorMessage = 'Failed to fetch data. Please try again.';
-        }
-      });
-    } else {
-      this.errorMessage = 'Select type of search';
+      this.searchByMcmx();
+    } else if (this.isNameSelected) {
+      this.searchByName();
     }
   }
-  
-  
-  
-  
-  
-  
+
+  private searchByUsdot() {
+    this.isLoading = true;
+    this.usdotService.getUsdotData(this.usdotNumber!).subscribe({
+      next: (response) => {
+        if (response) {
+          this.handleResponse(response);
+        } else {
+          this.errorMessage = 'No data available for the provided USDOT number.';
+        }
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.handleError(error);
+      }
+    });
+  }
+
+  private searchByMcmx() {
+    this.isLoading = true;
+    this.mcmxService.getMcMxData(this.mcmxNumber!).subscribe({
+      next: (response) => {
+        if (response) {
+          this.handleResponse(response);
+        } else {
+          this.errorMessage = 'No data available for the provided MC/MX number.';
+        }
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.handleError(error);
+      }
+    });
+  }
+
+  private searchByName() {
+    this.isLoading = true;
+    this.nameSearchService.getCompanyName(this.nameSearch!).subscribe({
+      next: (response) => {
+        console.log('Response:', response);
+        if (Array.isArray(response)) {
+          if (response.length > 2) {
+            this.errorMessage = 'Too many results. Please enter a more specific company name.';
+          } else if (response.length === 0) {
+            this.errorMessage = 'No data available for this company name.';
+          } else {
+            this.handleResponse(response[0]);
+          }
+        } else {
+          this.errorMessage = 'Unexpected response format.';
+        }
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.handleError(err);
+      }
+    });
+  }
+
+  private handleResponse(response: Usdot) {
+    this.dataTransferObject = response;
+    console.log('DataTransferObject:', this.dataTransferObject);
+    this.router.navigate(['/company-details'], { state: { dataTransferObject: this.dataTransferObject } });
+  }
+
+  private handleError(error: any) {
+    this.isLoading = false;
+    this.errorMessage = 'An error occurred while fetching company data.';
+    console.error('Error:', error);
+  }
 
   toggleModal(): void {
     this.modalVisible = !this.modalVisible;
   }
 
-  // selectButton(buttonType: string, event: MouseEvent): void {
-  //   event.stopPropagation();
-  //   this.selectedButton = buttonType;
-  // }
-
-  onInputFocus(): void {
-    // Actions on input focus, if necessary
-  }
+  onInputFocus(): void {}
 
   selectButton(buttonType: string, event: MouseEvent): void {
     event.stopPropagation();
-      
-  
-    // Reset all selections
     this.isUsdotSelected = false;
     this.isMcmxSelected = false;
     this.isNameSelected = false;
-  
-    // Set the selected state based on the button clicked
+
     switch (buttonType) {
       case 'MC/MX':
         this.isMcmxSelected = true;
@@ -158,24 +157,22 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-  
 
-  
   cards = [
     {
-      headline: 'Headline goes here',
-      description: 'Lorem ipsum dolor sit amet consectetur. Lorem ipsum.',
+      headline: 'Accident and Injury Protection',
+      description: 'Our insurance covers medical expenses, rehabilitation costs, and lost wages for employees who suffer from work-related injuries or accidents.',
       icon: 'assets/img/home/icon-third-page-one.png'
     },
     {
-      headline: 'Headline goes here',
-      description: 'Lorem ipsum dolor sit amet consectetur. Lorem ipsum.',
+      headline: 'Occupational Disease Coverage',
+      description: 'Employees exposed to hazardous work conditions over time may develop occupational diseases.',
       icon: 'assets/img/home/icon-third-page-three.png'
     },
     {
-      headline: 'Headline goes here',
-      description: 'Lorem ipsum dolor sit amet consectetur. Lorem ipsum.',
-      icon: 'assets/img/home/icon-third-page-two.png' 
+      headline: 'Temporary and Permanent Disability Benefits',
+      description: 'In the unfortunate event that an employee becomes temporarily or permanently disabled due to a work-related incident, our policy provides them with a continuous income stream, ensuring their financial stability.',
+      icon: 'assets/img/home/icon-third-page-two.png'
     },
   ];
 }
