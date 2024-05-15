@@ -19,6 +19,7 @@ import { SignUpPageComponent } from './components/sign-up-page/sign-up-page/sign
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer/pdf-viewer.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DriverService } from 'src/app/services/DriverDetails/driver.service';
 
 const appRoutes: Routes = [
   {path: '', component:HomeComponent},
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
   ],
   providers: [
+    DriverService,
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
