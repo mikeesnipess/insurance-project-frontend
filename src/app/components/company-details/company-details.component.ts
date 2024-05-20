@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import Usdot from 'src/app/services/USDOT/usdot';
+import { StateService } from 'src/app/services/StateService/state.service';
 
 @Component({
   selector: 'app-company-details',
@@ -12,7 +13,7 @@ export class CompanyDetailsComponent implements OnInit {
   companyForm: FormGroup;
   dataTransferObject: Usdot | null = null;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private router: Router, private stateService: StateService) {
     this.companyForm = new FormGroup({
       companyType: new FormControl('')
     });
@@ -26,6 +27,21 @@ export class CompanyDetailsComponent implements OnInit {
       }
     } else {
       console.error('No state available in the current navigation.');
+    }
+  }
+
+  onSubmit(): void {
+    if (this.dataTransferObject) {
+      // Ensure the required fields are set
+      if (!this.dataTransferObject.carrier.censusTypeId.name) {
+        this.dataTransferObject.carrier.censusTypeId.name = 'Default Name'; // Set a default value
+      }
+
+      console.log('Setting state in StateService:', this.dataTransferObject);
+      this.stateService.setDataTransferObject(this.dataTransferObject);
+      this.router.navigate(['/driver-details']);
+    } else {
+      console.error('Data transfer object is null');
     }
   }
 }
