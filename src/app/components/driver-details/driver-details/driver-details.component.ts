@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DriverDetails } from 'src/app/models/carrier/driver-models/driver-details-model';
-import { DriverService } from 'src/app/services/DriverDetails/driver.service';
 import { Router } from '@angular/router';
-import { CompanyService } from 'src/app/services/CompanyDetails/company-details.service';
 import Usdot from 'src/app/services/USDOT/usdot';
 import { StateService } from 'src/app/services/StateService/state.service';
+import { CombinedService } from 'src/app/services/DocuSign/docu-sign.service';
 
 @Component({
   selector: 'app-driver-details',
@@ -33,7 +32,7 @@ export class DriverDetailsComponent implements OnInit {
 
   years = Array.from({ length: 25 }, (_, i) => ({ year: 1980 + i }));
 
-  constructor(private driverService: DriverService, private companyService: CompanyService, private router: Router, private stateService: StateService) {}
+  constructor(private combinedService: CombinedService, private router: Router, private stateService: StateService) {}
 
   ngOnInit(): void {
     console.log('Initializing DriverDetailsComponent');
@@ -48,29 +47,20 @@ export class DriverDetailsComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.driverService.submitDriverDetails(this.driverDetails).subscribe(
-      response => {
-        console.log('Driver details submitted successfully', response);
-        this.router.navigate(['/signing-page']); // Navigate to the next page on success
+    if (this.companyDetails === null) {
+      console.error('Company details are null');
+      return;
+    }
+
+    this.combinedService.submitDetails(this.driverDetails, this.companyDetails).subscribe(
+      envelopeId => {
+        console.log('Details submitted successfully, envelope ID:', envelopeId);
+        this.router.navigate(['/signing-page'], { queryParams: { envelopeId } }); // Navigate to the signing page with the envelopeId as a query parameter
       },
       error => {
-        console.error('Error submitting driver details', error);
+        console.error('Error submitting details', error);
       }
     );
-
-    if (this.companyDetails !== null) {
-      this.companyService.submitCompanyDetails(this.companyDetails).subscribe(
-        response => {
-          console.log('Company details submitted successfully', response);
-          this.router.navigate(['/signing-page']); // Navigate to the next page on success
-        },
-        error => {
-          console.error('Error submitting company details', error);
-        }
-      );
-    } else {
-      console.error('Company details are null');
-    }
   }
 
   private isUsdot(object: any): object is Usdot {
