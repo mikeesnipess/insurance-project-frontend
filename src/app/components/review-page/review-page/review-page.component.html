@@ -1,9 +1,10 @@
 <div class="document-container">
+  <div *ngIf="pdfSrc">
     <pdf-viewer [src]="pdfSrc" class="pdf-viewer"></pdf-viewer>
-    <div class="buttons-container">
-      <button (click)="downloadPDF()" class="pdf-action-button">Download PDF</button>
-      <button (click)="downloadRecipient()"class="pdf-action-button">Download Recipient</button>
-      <button routerLink="/"class="pdf-action-button">Return to Home Page</button>
-    </div>
   </div>
-  
+  <div class="buttons-container">
+    <button (click)="downloadPDF()" class="pdf-action-button">Download PDF</button>
+    <button (click)="downloadRecipient()" class="pdf-action-button">Download Recipient</button>
+    <button routerLink="/" class="pdf-action-button">Return to Home Page</button>
+  </div>
+</div>

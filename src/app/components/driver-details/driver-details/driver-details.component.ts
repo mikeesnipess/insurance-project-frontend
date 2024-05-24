@@ -38,8 +38,8 @@ export class DriverDetailsComponent implements OnInit {
     console.log('Initializing DriverDetailsComponent');
     const dataTransferObject = this.stateService.getDataTransferObject();
     console.log('Data from StateService:', dataTransferObject);
-    if (this.isUsdot(dataTransferObject)) {
-      this.companyDetails = dataTransferObject;
+    if (this.isUsdot(dataTransferObject?.companyDetails)) {
+      this.companyDetails = dataTransferObject?.companyDetails || null;
       console.log('Received company details:', this.companyDetails);
     } else {
       console.error('No state available in the StateService or the state is not of type Usdot.');
@@ -55,6 +55,8 @@ export class DriverDetailsComponent implements OnInit {
     this.combinedService.submitDetails(this.driverDetails, this.companyDetails).subscribe(
       envelopeId => {
         console.log('Details submitted successfully, envelope ID:', envelopeId);
+        // Store data in the state service
+        this.stateService.setDataTransferObject({ driverDetails: this.driverDetails, companyDetails: this.companyDetails! });
         this.router.navigate(['/signing-page'], { queryParams: { envelopeId } }); // Navigate to the signing page with the envelopeId as a query parameter
       },
       error => {

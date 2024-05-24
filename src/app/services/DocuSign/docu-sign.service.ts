@@ -22,7 +22,7 @@ export class CombinedService {
       }
     };
 
-    console.log('Combined Data for backend:', payload);
+    console.log('Combined Data for backend DocuSign Service:', payload);
     return this.http.post<{ message: string, result: string }>(this.apiUrl, payload).pipe(
       map(response => response.result) // Return only the result (envelope ID)
     );

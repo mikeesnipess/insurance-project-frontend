@@ -2,12 +2,12 @@ import { Carrier, Link, CarrierOperation, CensusType } from 'src/app/models/carr
 
 export default interface Usdot {
   _links: {
-      basics: Link;
-      cargoCarried: Link;
-      operationClassification: Link;
-      docketNumbers: Link;
-      carrierActiveForHireAuthority: Link;
-      self: Link;
+    basics: Link;
+    cargoCarried: Link;
+    operationClassification: Link;
+    docketNumbers: Link;
+    carrierActiveForHireAuthority: Link;
+    self: Link; // Ensure the self link is included here
   };
   carrier: Carrier;
 }
