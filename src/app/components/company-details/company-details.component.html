@@ -4,7 +4,7 @@
       <div class="col-md-3">
         <form [formGroup]="companyForm">
           <label for="companyType" class="form-label">Company Type</label>
-              <input type="text" class="form-control custom-input" id="companyType" placeholder="Enter Company Type" value={{dataTransferObject?.carrier?.carrierOperation?.carrierOperationDesc}} required="">
+              <input type="text" class="form-control custom-input" id="companyType" placeholder="Enter Company Type" value={{companyDetails?.carrier?.carrierOperation?.carrierOperationDesc}} required="">
               <div class="invalid-feedback">
                 Valid first company is required.
               </div>
@@ -16,7 +16,7 @@
 
         <div class="col-md-3">
           <label for="postalCode" class="form-label">ZIP/Postal Code</label>
-          <input type="text" class="form-control custom-input" id="postalCode" placeholder="Enter Postal Code" value={{dataTransferObject?.carrier?.phyZipcode}} required="">
+          <input type="text" class="form-control custom-input" id="postalCode" placeholder="Enter Postal Code" value={{companyDetails?.carrier?.phyZipcode}} required="">
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
@@ -24,7 +24,7 @@
         
         <div class="col-md-3">
             <label for="firstAddressLine" class="form-label">Address Line 1</label>
-            <input type="text" class="form-control custom-input" id="firstAddressLine" placeholder="Enter First Address" value={{dataTransferObject?.carrier?.phyStreet}} required="">
+            <input type="text" class="form-control custom-input" id="firstAddressLine" placeholder="Enter First Address" value={{companyDetails?.carrier?.phyStreet}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -34,7 +34,7 @@
           <div class="row justify-content-center align-items-center custom-row-spacing">
           <div class="col-md-3">
             <label for="companyName" class="form-label">Company Name</label>
-            <input type="text" class="form-control custom-input" id="companyName" placeholder="Enter Company Name" value={{dataTransferObject?.carrier?.legalName}} required="">
+            <input type="text" class="form-control custom-input" id="companyName" placeholder="Enter Company Name" value={{companyDetails?.carrier?.legalName}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -42,7 +42,7 @@
 
           <div class="col-md-3">
             <label for="countryInput" class="form-label">Country</label>
-            <input type="text" class="form-control custom-input" id="countryInput" placeholder="Enter Country" value={{dataTransferObject?.carrier?.phyCountry}} required="">
+            <input type="text" class="form-control custom-input" id="countryInput" placeholder="Enter Country" value={{companyDetails?.carrier?.phyCountry}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -60,7 +60,7 @@
         <div class="row justify-content-center align-items-center custom-row-spacing">
           <div class="col-md-3">
             <label for="dbaNumber" class="form-label">DBA Number</label>
-            <input type="text" class="form-control custom-input" id="dbaNumber" placeholder="Enter DBA Number" value={{dataTransferObject?.carrier?.dbaName}} required="">
+            <input type="text" class="form-control custom-input" id="dbaNumber" placeholder="Enter DBA Number" value={{companyDetails?.carrier?.dbaName}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -68,7 +68,7 @@
 
           <div class="col-md-3">
             <label for="stateEntry" class="form-label">State</label>
-            <input type="text" class="form-control custom-input" id="stateEntry" placeholder="Enter State" value={{dataTransferObject?.carrier?.phyState}} required="">
+            <input type="text" class="form-control custom-input" id="stateEntry" placeholder="Enter State" value={{companyDetails?.carrier?.phyState}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -86,7 +86,7 @@
         <div class="row justify-content-center align-items-center custom-row-spacing">
         <div class="col-md-3">
             <label for="feinNumber" class="form-label">FEIN Number</label>
-            <input type="text" class="form-control custom-input" id="feinNumber" placeholder="Enter FEIN Number" value={{dataTransferObject?.carrier?.ein}} required="">
+            <input type="text" class="form-control custom-input" id="feinNumber" placeholder="Enter FEIN Number" value={{companyDetails?.carrier?.ein}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -94,7 +94,7 @@
 
           <div class="col-md-3">
             <label for="cityEntry" class="form-label">City</label>
-            <input type="text" class="form-control custom-input" id="cityEntry" placeholder="Enter City" value={{dataTransferObject?.carrier?.phyCity}} required="">
+            <input type="text" class="form-control custom-input" id="cityEntry" placeholder="Enter City" value={{companyDetails?.carrier?.phyCity}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -102,7 +102,7 @@
 
           <div class="col-md-3">
             <label for="idCustomer" class="form-label">Total Drivers</label>
-            <input type="text" class="form-control custom-input" id="idCustomer" placeholder="Count Drivers" value={{dataTransferObject?.carrier?.totalDrivers}} required="">
+            <input type="text" class="form-control custom-input" id="idCustomer" placeholder="Count Drivers" value={{companyDetails?.carrier?.totalDrivers}} required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
