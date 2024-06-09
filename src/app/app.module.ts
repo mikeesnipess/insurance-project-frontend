@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core'; 
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
-import {HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompanyDetailsComponent } from './components/company-details/company-details.component';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header/header.component';
@@ -20,18 +20,17 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer/pdf-viewe
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DriverService } from 'src/app/services/DriverDetails/driver.service';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component'; 
 
 const appRoutes: Routes = [
-  {path: '', component:HomeComponent},
-  {path: 'company-details', component:CompanyDetailsComponent},
-  {path: 'driver-details', component:DriverDetailsComponent},
-  {path: 'signing-page', component:SigningPageComponent},
-  {path: 'sign-up-page', component:SignUpPageComponent},
-  {path: 'payment-page', component:PaymentPageComponent},
-  {path: 'review-page', component:ReviewPageComponent},
-
-
-]
+  { path: '', component: HomeComponent },
+  { path: 'company-details', component: CompanyDetailsComponent },
+  { path: 'driver-details', component: DriverDetailsComponent },
+  { path: 'signing-page', component: SigningPageComponent },
+  { path: 'sign-up-page', component: SignUpPageComponent },
+  { path: 'payment-page', component: PaymentPageComponent },
+  { path: 'review-page', component: ReviewPageComponent },
+];
 
 @NgModule({
   declarations: [
@@ -49,17 +48,18 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }), // This will automatically reset the scroll position to the top on route change 
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }), // This will automatically reset the scroll position to the top on route change
     BrowserAnimationsModule,
     NgSelectModule,
     PdfViewerModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    LoadingSpinnerComponent
   ],
   providers: [
     DriverService,
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

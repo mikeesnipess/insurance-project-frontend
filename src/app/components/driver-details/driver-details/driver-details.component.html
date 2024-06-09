@@ -1,4 +1,3 @@
-<!-- driver-details.component.html -->
 <div class="company-background container-fluid d-flex flex-column justify-content-center align-items-center min-vh-50">
   <div class="d-flex justify-content-between align-items-center w-100 mb-3">
     <div>
@@ -137,4 +136,6 @@
     </div>
   </form>
   <hr>
+
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 </div>
