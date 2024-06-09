@@ -13,6 +13,7 @@ import { CombinedService } from 'src/app/services/DocuSign/docu-sign.service';
 export class DriverDetailsComponent implements OnInit {
   driverDetails: DriverDetails = new DriverDetails();
   companyDetails: Usdot | null = null;
+  isLoading = false; // Add loading state
 
   days = Array.from({ length: 31 }, (_, i) => ({ day: i + 1 }));
   months = [
@@ -51,19 +52,26 @@ export class DriverDetailsComponent implements OnInit {
       console.error('Company details are null');
       return;
     }
-
+  
+    this.isLoading = true; // Set loading to true
+    console.log('Loading started'); // Add this line
+  
     this.combinedService.submitDetails(this.driverDetails, this.companyDetails).subscribe(
       envelopeId => {
+        this.isLoading = false; // Set loading to false when data is received
+        console.log('Loading finished'); // Add this line
         console.log('Details submitted successfully, envelope ID:', envelopeId);
-        // Store data in the state service
         this.stateService.setDataTransferObject({ driverDetails: this.driverDetails, companyDetails: this.companyDetails! });
-        this.router.navigate(['/signing-page'], { queryParams: { envelopeId } }); // Navigate to the signing page with the envelopeId as a query parameter
+        this.router.navigate(['/signing-page'], { queryParams: { envelopeId } });
       },
       error => {
+        this.isLoading = false; // Set loading to false on error
+        console.log('Loading finished with error'); // Add this line
         console.error('Error submitting details', error);
       }
     );
   }
+  
 
   private isUsdot(object: any): object is Usdot {
     return object && object.carrier && object.carrier.legalName !== undefined;
