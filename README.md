@@ -48,7 +48,9 @@ Complete data about driver to receive occupation accident insurance
 
 Generate PDF to sing with DocuSign ( PDF is just test template)
 
-![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/6dff171c-7cba-4fe1-8760-35f418ad6343)
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/51f47404-686b-4b13-98d7-892d4c522319)
+![image](https://github.com/mikeesnipess/insurance-project-frontend/assets/97571296/51f47404-686b-4b13-98d7-892d4c522319)
+
 
 Payment page, after click this button we will pay with card
 
